@@ -29,7 +29,7 @@ namespace TestProjectLinq
         public void TestGetUsersWithCategoryAdmin()
         {
             
-            var filePath = @"C:\Users\Liza\source\repos\practice_04\Linq\bin\Debug\net8.0\users.xml";
+            string filePath = @"C:\Users\Liza\source\repos\practice_04\Linq\bin\Debug\net8.0\users.xml";
             XElement usersXml = XElement.Load(filePath);
 
             // users with the category "Admin"
@@ -46,7 +46,7 @@ namespace TestProjectLinq
         public void TestTotalConnectionTimePerUser()
         {
           
-            var filePath = @"C:\Users\Liza\source\repos\practice_04\Linq\bin\Debug\net8.0\users.xml";
+            string filePath = @"C:\Users\Liza\source\repos\practice_04\Linq\bin\Debug\net8.0\users.xml";
             XElement usersXml = XElement.Load(filePath);
 
             // the total connection time for each user
@@ -69,7 +69,7 @@ namespace TestProjectLinq
 
             foreach (var user in totalConnectionTimePerUser)
             {
-                var expectedTotalTime = expectedTotalTimes.FirstOrDefault(u => u.UserName == user.UserName)?.TotalTime;
+                var expectedTotalTime = expectedTotalTimes.FirstOrDefault(u => u.UserName == user.UserName).TotalTime;
                 Assert.AreEqual(expectedTotalTime, user.TotalTime);
             }
         }
